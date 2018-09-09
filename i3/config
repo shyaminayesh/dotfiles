@@ -1,1 +1,154 @@
-/home/shyamin/.config/i3/config
+# SET WALLPAPER
+exec_always --no-startup-id feh --bg-fill ~/Pictures/WALLPAPERS/wallpaper.jpg
+exec_always --no-startup-id compton
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# SET MOD KEY
+set $mod Mod1
+set $mod4 Mod4
+
+# TERMINAL EMULATOR
+set $term xfce4-terminal
+bindsym $mod+Return exec $term
+
+# ROFI LAUNCHER
+bindsym $mod4+r exec --no-startup-id rofi -show run
+
+# FONT
+font pango:monospace 8
+
+# FOCUS WINDOWS
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# FOCUS THE PARENT CONTAINER
+bindsym $mod+a focus parent
+
+# FOCUS THE CHILD CONTAINER
+#bindsym $mod+d focus child
+
+# FOCUSED WINDOW ( KILL )
+bindsym $mod+Shift+q kill
+
+# FOCUSED WINDOW ( MOVE )
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# SPLIT WINDOW ( horizontal / vertical )
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# TOGGLE WINDOW FLOATING
+bindsym $mod+Shift+space floating toggle
+
+# DRAG FLOATING WINDOW $MOD + MOUSE
+floating_modifier $mod
+
+# CHANGE FOCUS BETWEEN FLOATING WINDOWS
+bindsym $mod+space focus mode_toggle
+
+# CHANGE CONTAINER LAYOUT ( STACKED, TABBED, TOGGLE, SPLIT )
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# REMOVE WINDOW BORDERS
+for_window [class="^.*"] border pixel 2
+
+# SET GAPS
+gaps inner 7
+gaps outer 4
+
+# SWITCH TO WORKSPACE
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# MOVE FOCUSED CONTAINER TO WORKSPACE
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# RESTART i3
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# WINDOW RESIZE MODE
+mode "resize" {
+
+        # KEYS FOR RESIZE
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # BACK TO NORMAL MODE
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+
+}
+
+# i3BAR CONFIGURATION
+# bar {
+#        status_command i3status
+#}
+
+# CONFIGURE COLORS
+set $c_black_l		#665C54
+#set $c_blue		#4d7df2
+set $c_blue            #000000
+set $c_blue_l		#414E70
+set $c_background	#282828
+
+# CLIENT CLASS			BACKGROUND			BORDERS			TEXT			SPLIT
+client.focused			$c_blue				$c_blue			$c_black_l		$c_blue
+client.unfocused		$c_blue _l			$c_blue_l		$c_black_l		$c_blue_l
+client.background		$c_background
+
+# KEY BINDINGS FOR MODES
+bindsym $mod+r mode "resize"
+bindsym $mod+f fullscreen toggle
+
+# KEY BINDINGS FOR PROGRAMS
+bindsym $mod+d exec dmenu_run
+bindsym Print exec scrot -s
+
+# SCREENSHOTS
+bindsym --release Print exec scrot 'ss_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
+bindsym --release Shift+Print exec scrot -s 'ss_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
+
+# BIND MEDIA KEYS
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
