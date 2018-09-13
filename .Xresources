@@ -1,8 +1,8 @@
 ! CONFIGS ( xterm )
-XTerm.vt100.locale: true
-XTerm.vt100.metaSendsEscape: true
-XTerm.vt100.backarrowKey: false
-XTerm.ttyModes: erase ^?
+xterm.vt100.locale: true
+xterm.vt100.metaSendsEscape: true
+xterm.vt100.backarrowKey: false
+xterm.ttyModes: erase ^?
 
 xterm.vt100.foreground: white
 xterm.vt100.background: #1D1D1D
