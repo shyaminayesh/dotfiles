@@ -1,60 +1,64 @@
+# SET VARS
+set $alt Mod1
+set $sup Mod4
+set $term xterm
+
+
 # SET WALLPAPER
 exec_always --no-startup-id feh --bg-fill ~/Pictures/WALLPAPERS/wallpaper.jpg
 exec_always --no-startup-id compton
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# SET MOD KEY
-set $mod Mod1
-set $mod4 Mod4
 
 # TERMINAL EMULATOR
-set $term xfce4-terminal
-bindsym $mod+Return exec $term
+bindsym $alt+Return exec --no-startup-id $term
+
 
 # ROFI LAUNCHER
-bindsym $mod4+r exec --no-startup-id rofi -show run
+bindsym $sup+r exec --no-startup-id rofi -show run
+
 
 # FONT
 font pango:monospace 8
 
+
 # FOCUS WINDOWS
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $alt+Left focus left
+bindsym $alt+Down focus down
+bindsym $alt+Up focus up
+bindsym $alt+Right focus right
+
 
 # FOCUS THE PARENT CONTAINER
-bindsym $mod+a focus parent
+bindsym $alt+a focus parent
 
-# FOCUS THE CHILD CONTAINER
-#bindsym $mod+d focus child
 
 # FOCUSED WINDOW ( KILL )
-bindsym $mod+Shift+q kill
+bindsym $alt+Shift+q kill
 
 # FOCUSED WINDOW ( MOVE )
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
 
 # SPLIT WINDOW ( horizontal / vertical )
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $alt+h split h
+bindsym $alt+v split v
 
 # TOGGLE WINDOW FLOATING
-bindsym $mod+Shift+space floating toggle
+bindsym $alt+Shift+space floating toggle
 
-# DRAG FLOATING WINDOW $MOD + MOUSE
-floating_modifier $mod
+# DRAG FLOATING WINDOW $ALT + MOUSE
+floating_modifier $alt
 
 # CHANGE FOCUS BETWEEN FLOATING WINDOWS
-bindsym $mod+space focus mode_toggle
+bindsym $alt+space focus mode_toggle
 
 # CHANGE CONTAINER LAYOUT ( STACKED, TABBED, TOGGLE, SPLIT )
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $alt+s layout stacking
+bindsym $alt+w layout tabbed
+bindsym $alt+e layout toggle split
 
 # REMOVE WINDOW BORDERS
 for_window [class="^.*"] border pixel 2
@@ -64,37 +68,37 @@ gaps inner 7
 gaps outer 4
 
 # SWITCH TO WORKSPACE
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $alt+1 workspace 1
+bindsym $alt+2 workspace 2
+bindsym $alt+3 workspace 3
+bindsym $alt+4 workspace 4
+bindsym $alt+5 workspace 5
+bindsym $alt+6 workspace 6
+bindsym $alt+7 workspace 7
+bindsym $alt+8 workspace 8
+bindsym $alt+9 workspace 9
+bindsym $alt+0 workspace 10
 
 # MOVE FOCUSED CONTAINER TO WORKSPACE
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $alt+Shift+1 move container to workspace 1
+bindsym $alt+Shift+2 move container to workspace 2
+bindsym $alt+Shift+3 move container to workspace 3
+bindsym $alt+Shift+4 move container to workspace 4
+bindsym $alt+Shift+5 move container to workspace 5
+bindsym $alt+Shift+6 move container to workspace 6
+bindsym $alt+Shift+7 move container to workspace 7
+bindsym $alt+Shift+8 move container to workspace 8
+bindsym $alt+Shift+9 move container to workspace 9
+bindsym $alt+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $alt+Shift+c reload
 
 # RESTART i3
-bindsym $mod+Shift+r restart
+bindsym $alt+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # WINDOW RESIZE MODE
 mode "resize" {
@@ -111,15 +115,10 @@ mode "resize" {
 
 }
 
-# i3BAR CONFIGURATION
-# bar {
-#        status_command i3status
-#}
 
 # CONFIGURE COLORS
 set $c_black_l		#665C54
-#set $c_blue		#4d7df2
-set $c_blue            #000000
+set $c_blue			#000000
 set $c_blue_l		#414E70
 set $c_background	#282828
 
@@ -129,11 +128,11 @@ client.unfocused		$c_blue _l			$c_blue_l		$c_black_l		$c_blue_l
 client.background		$c_background
 
 # KEY BINDINGS FOR MODES
-bindsym $mod+r mode "resize"
-bindsym $mod+f fullscreen toggle
+bindsym $alt+r mode "resize"
+bindsym $alt+f fullscreen toggle
 
 # KEY BINDINGS FOR PROGRAMS
-bindsym $mod+d exec dmenu_run
+bindsym $alt+d exec dmenu_run
 bindsym Print exec scrot -s
 
 # SCREENSHOTS
