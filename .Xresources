@@ -1,0 +1,19 @@
+! CONFIGS ( xterm )
+XTerm.vt100.locale: true
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+
+xterm.vt100.foreground: white
+xterm.vt100.background: #1D1D1D
+
+xterm*savelines: 16384
+xterm.vt100.scrollBar: false
+xterm*scrollTtyOutput: false
+
+xterm*faceName: DejaVu Sans Mono Book
+xterm*faceSize: 9
+
+xterm.vt100.translations: #override \n\
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
