@@ -29,7 +29,7 @@ font-1 = Material\-Design\-Iconic\-Font:fontformat=tryetype:size=10;3
 
 modules-left = i3
 modules-center = date
-modules-right = backlight volume wlan linkspeed battery
+modules-right = backlight volume wlan temperature battery
 
 
 
@@ -139,6 +139,18 @@ time = %I:%M:%S %p
 
 label =   %date%       %time%
 format-padding = 1
+
+
+
+
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+thermal-zone = 0
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+warn-temperature = 75
+units = true
+format =   <label>
 
 
 
