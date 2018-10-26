@@ -10,12 +10,16 @@ exec_always --no-startup-id compton
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
+# SHORTCUT BINDINGS
+bindsym $sup+f exec --no-startup-id nautilus
+
+
 # TERMINAL EMULATOR
 bindsym $alt+Return exec --no-startup-id $term
 
 
 # ROFI LAUNCHER
-bindsym $sup+r exec --no-startup-id rofi -show run
+bindsym --release $sup+r exec --no-startup-id rofi -show run
 
 
 # FONT
