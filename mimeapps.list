@@ -1,0 +1,45 @@
+
+## FILE TYPE ASSOCIATIONS ##
+[Added Associations]
+
+# IMAGES
+image/jpeg=eog.desktop;
+image/png=eog.desktop;
+
+# PDF
+application/pdf=org.gnome.Evince.desktop;
+
+# TEXT ( HTML / XML )
+text/html=brave-bin.desktop
+text/x-log=notepadqq.desktop;
+text/markdown=notepadqq.desktop;
+text/plain=notepadqq.desktop;
+application/xml=notepadqq.desktop;
+
+# IMAGES
+image/gif=eog.desktop;
+image/png=eog.desktop;
+image/gif=eog.desktop;
+
+# GRAPHICS
+application/illustrator=inkscape.desktop;
+model/stl=blender.desktop;
+
+# VIDEO
+video/mp4=mpv.desktop;
+video/x-flv=mpv.desktop;
+video/x-matroska=mpv.desktop;
+
+# FONTS
+font/ttf=org.gnome.font-viewer.desktop;
+
+
+
+## DEFAULT APPLICATIONS ##
+[Default Applications]
+
+# BROWSER
+x-scheme-handler/http=brave-bin.desktop
+x-scheme-handler/https=brave-bin.desktop
+x-scheme-handler/about=brave-bin.desktop
+x-scheme-handler/unknown=brave-bin.desktop
