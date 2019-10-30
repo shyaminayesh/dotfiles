@@ -10,6 +10,10 @@ exec_always --no-startup-id compton
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
+# DUNST ( NOTIFICATION )
+exec_always --no-startup-id dunst
+
+
 # SHORTCUT BINDINGS
 bindsym $sup+f exec --no-startup-id nautilus
 # bindsym F1 exec "echo false" // REMOVE F1 Key
