@@ -3,10 +3,31 @@ black = #AA000000
 black_dark = #000000
 white = #FFFFFF
 
+[clrs]
+black = #000000
+white = #FFFFFF
+blue = #0000FF
+
 
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+
+[bar/dex]
+bottom = true
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+foreground = ${clrs.white}
+background = ${clrs.black}
+padding-left = 0
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 3
+
+modules-left = workspaces
 
 
 [bar/primary]
@@ -32,6 +53,16 @@ modules-center = date
 modules-right = backlight volume wlan temperature battery
 
 
+
+[module/workspaces]
+type = internal/i3
+
+label-focused = %name%
+label-unfocused =
+label-urgent =
+label-visible =
+
+format = <label-state>
 
 
 [module/i3]
@@ -73,7 +104,9 @@ ws-icon-9 = 10;
 
 
 [module/backlight]
-type = internal/xbacklight
+type = internal/backlight
+card = acpi_video0
+enable-scroll = true
 
 label =  %percentage%%
 format-backlight = <label>
@@ -82,7 +115,7 @@ format-backlight = <label>
 
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 label-volume = %percentage%%
 format-volume = <ramp-volume> <label-volume>
@@ -93,7 +126,6 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 
 label-muted = 
-format-muted-padding = 6
 
 
 
@@ -112,7 +144,7 @@ format-disconnected-padding = 1
 
 [module/wlan]
 inherit = module/network
-interface = wlo1
+interface = wlan0
 
 label-connected =  %essid%
 label-disconnected =  NO WiFi
@@ -147,7 +179,7 @@ format-padding = 1
 type = internal/temperature
 interval = 0.5
 thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
 warn-temperature = 75
 units = true
 format =   <label>
