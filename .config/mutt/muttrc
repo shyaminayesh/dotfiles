@@ -1,16 +1,19 @@
-set folder = "imaps://me@shyamin.com@imap.gmail.com:993"
-set smtp_url = "smtp://me@shyamin.com@smtp.gmail.com:465"
+set folder = "imaps://imap.gmail.com:993"
+set smtp_url = "smtps://me@shyamin.com@smtp.gmail.com:465"
+set imap_user = "me@shyamin.com"
 set spoolfile = "+INBOX"
-set record = "+Sent"
-set trash = "+Trash"
-set postponed = "+Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+set postponed = "+[Gmail]/Drafts"
 set from = "me@shyamin.com"
 set realname = "Shyamin Ayesh"
 set sort=reverse-threads
-
+set timeout=30
+set editor=nano
 set header_cache = ~/.mutt/cache
+set sidebar_visible = no
 
-mailboxes =INBOX =Sent =Trash =Drafts =Junk =Other
+mailboxes =INBOX
 
 # ORDER
 alternative_order text/plain text/enriched text/html
