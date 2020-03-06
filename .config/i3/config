@@ -5,8 +5,9 @@ set $term xterm
 
 
 # SET WALLPAPER
-exec_always --no-startup-id feh --bg-fill ~/Pictures/WALLPAPERS/wallpaper.jpg
-exec_always --no-startup-id compton
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Wallpaper.jpg
+#exec_always --no-startup-id compton
+exec_always --no-startup-id picom
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
@@ -15,7 +16,8 @@ exec_always --no-startup-id dunst
 
 
 # SHORTCUT BINDINGS
-bindsym $sup+f exec --no-startup-id nautilus
+bindsym $sup+f exec --no-startup-id nemo
+bindsym $sup+l exec --no-startup-id i3lock
 # bindsym F1 exec "echo false" // REMOVE F1 Key
 
 # AUDIO CONTROL
@@ -28,12 +30,11 @@ bindsym $alt+Return exec --no-startup-id $term
 
 
 # ROFI LAUNCHER
-bindsym --release $sup+r exec --no-startup-id rofi -show run
+bindsym --release $sup+r exec --no-startup-id rofi -show drun
 
 
 # FONT
-font pango:monospace 8
-
+font Ubuntu:Regular 8
 
 # FOCUS WINDOWS
 bindsym $alt+Left focus left
