@@ -1,0 +1,20 @@
+set folder = "imaps://me@shyamin.com@imap.gmail.com:993"
+set smtp_url = "smtp://me@shyamin.com@smtp.gmail.com:465"
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+set from = "me@shyamin.com"
+set realname = "Shyamin Ayesh"
+set sort=reverse-threads
+
+set header_cache = ~/.mutt/cache
+
+mailboxes =INBOX =Sent =Trash =Drafts =Junk =Other
+
+# ORDER
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+
+# COLORS
+source ~/.config/mutt/colors.muttrc
