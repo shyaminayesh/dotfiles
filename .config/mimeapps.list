@@ -1,0 +1,15 @@
+[Default Applications]
+x-scheme-handler/mailto=chromium.desktop
+
+[Added Associations]
+
+# IMAGES
+image/gif=org.gnome.eog.desktop;
+image/png=org.gnome.eog.desktop;
+image/jpeg=org.gnome.eog.desktop;
+
+# PDF
+application/pdf=chromium.desktop
+
+# TEXT
+text/html=chromium.desktop
