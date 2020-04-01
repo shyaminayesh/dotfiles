@@ -11,30 +11,21 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
-# DUNST ( NOTIFICATION )
-exec_always --no-startup-id dunst
-
-
-# SHORTCUT BINDINGS
+# APPLICATIONS
 bindsym $sup+f exec --no-startup-id nemo
 bindsym $sup+l exec --no-startup-id i3lock
-# bindsym F1 exec "echo false" // REMOVE F1 Key
-
-# AUDIO CONTROL
-bindsym $sup+Up exec --no-startup-id pactl set-sink-volume 0 +1%
-bindsym $sup+Down exec --no-startup-id pactl set-sink-volume 0 -1%
-
-
-# TERMINAL EMULATOR
 bindsym $alt+Return exec --no-startup-id $term
-
-
-# ROFI LAUNCHER
 bindsym --release $sup+r exec --no-startup-id rofi -show drun
+
+
+# AUDIO
+bindsym $sup+Up exec --no-startup-id amixer set Master 1%+
+bindsym $sup+Down exec --no-startup-id amixer set Master 1%-
 
 
 # FONT
 font Ubuntu:Regular 8
+
 
 # FOCUS WINDOWS
 bindsym $alt+Left focus left
@@ -42,10 +33,8 @@ bindsym $alt+Down focus down
 bindsym $alt+Up focus up
 bindsym $alt+Right focus right
 
-
 # FOCUS THE PARENT CONTAINER
 bindsym $alt+a focus parent
-
 
 # FOCUSED WINDOW ( KILL )
 bindsym $alt+Shift+q kill
@@ -78,7 +67,7 @@ bindsym $alt+e layout toggle split
 for_window [class="^.*"] border pixel 2
 
 # SET GAPS
-gaps inner 7
+gaps inner 6
 gaps outer 4
 
 # SWITCH TO WORKSPACE
@@ -132,7 +121,7 @@ mode "resize" {
 
 # CONFIGURE COLORS
 set $c_black_l		#665C54
-set $c_blue			#000000
+set $c_blue		#000000
 set $c_blue_l		#414E70
 set $c_background	#282828
 
@@ -145,23 +134,7 @@ client.background		$c_background
 bindsym $alt+r mode "resize"
 bindsym $alt+f fullscreen toggle
 
-# KEY BINDINGS FOR PROGRAMS
-bindsym $alt+d exec dmenu_run
-bindsym Print exec scrot -s
 
 # SCREENSHOTS
 bindsym --release Print exec scrot 'ss_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
 bindsym --release Shift+Print exec scrot -s 'ss_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
-
-# BIND MEDIA KEYS
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
