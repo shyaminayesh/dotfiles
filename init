@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# PACMAN
+sudo pacman -Syy
+sudo pacman -S picom rofi
+
+# ROFI
+cp .config/rofi/config.rasi ~/.config/rofi/config.rasi
