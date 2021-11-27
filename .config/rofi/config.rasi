@@ -1,0 +1,81 @@
+configuration {
+	font: "Noto Sans Bold 10";
+	show-icons: true;
+	sidebar-mode: false;
+}
+
+window {
+	width: 25%;
+	border: 0;
+	padding: 0 0 0 0;
+	border-radius: 3;
+	transparency: "real";
+	background-color: #00000000;
+}
+
+prompt {
+	enabled: false;
+}
+
+entry {
+	placeholder: "Search";
+	text-color: #ffffff;
+	padding: 15px 15px 15px 15px;
+}
+
+inputbar {
+	border: 0px;
+	border-radius: 3px;
+	margin: 0px 10px 10px 10px;
+	children: [ prompt, entry ];
+	background-color: #dddddd22;
+}
+
+listview {
+	lines: 3;
+	columns: 3;
+	border: 0px;
+	cycle: false;
+	dynamic: false;
+	layout: vertical;
+	scrollbar: false;
+}
+
+mainbox {
+	children: [ inputbar, listview ];
+	background-color: #22222299;
+	padding: 15px 10px 0px 10px;
+}
+
+element {
+	border-radius: 3px;
+	orientation: vertical;
+	margin: 0px 10px 20px 10px;
+	padding: 20px 20px 20px 20px;
+}
+
+element normal normal {
+    background-color: #00000000;
+	text-color: #ffffff;
+}
+
+element alternate normal {
+	background-color: #00000000;
+	text-color: #ffffff;
+}
+
+element selected normal {
+	background-color: #dddddd22;
+}
+
+element-icon {
+	size: 54px;
+	vertical-align: 0.5;
+	horizontal-align: 0.5;
+}
+
+element-text {
+	expand: true;
+	vertical-align: 0.5;
+	horizontal-align: 0.5;
+}
