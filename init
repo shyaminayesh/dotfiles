@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # PACMAN
-sudo pacman -Syy
-sudo pacman -S picom rofi
+sudo pacman -Syy --noconfirm
+sudo pacman -S picom rofi --noconfirm
 
 # ROFI
 cp .config/rofi/config.rasi ~/.config/rofi/config.rasi
