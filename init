@@ -6,3 +6,6 @@ sudo pacman -S picom rofi --noconfirm
 
 # ROFI
 cp .config/rofi/config.rasi ~/.config/rofi/config.rasi
+
+# XORG
+cp etc/X11/xorg.conf.d/50-mouse-acceleration.conf /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
