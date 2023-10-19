@@ -1,0 +1,14 @@
+name: aur-prepare
+on:
+  workflow_dispatch:
+
+
+jobs:
+
+  aur-prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Tag::Get::Latest
+        run: echo ${{ github.ref_name }}
