@@ -15,9 +15,10 @@ jobs:
         id: tag
         uses: actions-ecosystem/action-get-latest-tag@v1
 
-      - name: get::uname
+      - name: pkgbuild::pkgver
         run: |
-          uname -a
+          ls -all
+          cat PKGBUILD
 
       - name: Debug
         run: echo ${{ steps.tag.outputs.tag }}
