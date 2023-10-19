@@ -7,6 +7,18 @@ pkgrel=1
 arch=("any")
 license=("GPL3")
 url="https://github.com/shyaminayesh/dotfiles"
-source=("$url/archive/v$pkgver.tar.gz")
+source=("$url/archive/refs/tags/v$pkgver.tar.gz")
 depends=("zsh>=5.9")
 sha256sums=("")
+
+
+# PREPARE
+prepare() {
+    echo "prepare"
+}
+
+
+# PACKAGE
+package() {
+    echo "package()"
+}
