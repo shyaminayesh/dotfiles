@@ -1,4 +1,4 @@
-name: aur
+name: AUR
 on:
   push:
   workflow_dispatch:
@@ -11,14 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: git::tag::get
-        id: tag
-        uses: actions-ecosystem/action-get-latest-tag@v1
+      # - name: git::tag::get
+      #   id: tag
+      #   uses: actions-ecosystem/action-get-latest-tag@v1
 
       - name: pkgbuild::pkgver
         run: |
-          ls -all
+          sed -i 's/sha256sums=\("[A-Fa-f0-9]{64}"\)/sha256sums=\("test"\)/' PKGBUILD
           cat PKGBUILD
 
-      - name: Debug
-        run: echo ${{ steps.tag.outputs.tag }}
+      # - name: Debug
+      #   run: echo ${{ steps.tag.outputs.tag }}
