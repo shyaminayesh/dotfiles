@@ -1,5 +1,6 @@
 name: aur-prepare
 on:
+  push:
   workflow_dispatch:
 
 
@@ -13,6 +14,10 @@ jobs:
       - name: git::tag::get
         id: tag
         uses: actions-ecosystem/action-get-latest-tag@v1
+
+      - name:
+        run: |
+          uname -a
 
       - name: Debug
         run: echo ${{ steps.tag.outputs.tag }}
