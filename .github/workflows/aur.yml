@@ -17,7 +17,7 @@ jobs:
 
       - name: pkgbuild::sha256sums
         run: |
-          sed -i 's/sha256sums=\("[A-Fa-f0-9]{64}"\)/sha256sums=\("test"\)/' PKGBUILD
+          sed -i 's/sha256sums=\("[A-Fa-f0-9]{64}"\)/sha256sums=\("test"\)/g' PKGBUILD
           cat PKGBUILD
 
       # - name: Debug
