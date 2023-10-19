@@ -12,7 +12,7 @@ jobs:
 
       - name: git::tag::get
         id: tag
-        uses: actions-ecosystem/action-release-label@v1
+        uses: actions-ecosystem/action-get-latest-tag@v1
 
       - name: Debug
         run: echo ${{ steps.tag.outputs.tag }}
