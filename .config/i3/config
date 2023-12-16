@@ -1,14 +1,18 @@
 # SET VARS
 set $alt Mod1
 set $sup Mod4
-set $term xterm
+set $term kitty
 
 
 # SET WALLPAPER
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/Wallpaper.jpg
-#exec_always --no-startup-id compton
 exec_always --no-startup-id picom
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id dunst
+
+
+# AUTOSTART
+exec --no-startup-id "workspace 1; exec /usr/bin/chromium"
 
 
 # APPLICATIONS
@@ -19,8 +23,10 @@ bindsym --release $sup+r exec --no-startup-id rofi -show drun
 
 
 # AUDIO
-bindsym $sup+Up exec --no-startup-id amixer set Master 1%+
-bindsym $sup+Down exec --no-startup-id amixer set Master 1%-
+bindsym $sup+Up exec --no-startup-id amixer -c 1 set Master 1%+
+bindsym $sup+Down exec --no-startup-id amixer -c 1 set Master 1%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%
 
 
 # FONT
@@ -136,5 +142,5 @@ bindsym $alt+f fullscreen toggle
 
 
 # SCREENSHOTS
-bindsym --release Print exec scrot 'ss_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
-bindsym --release Shift+Print exec scrot -s 'ss_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
+bindsym --release Print exec scrot 'SC_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/Screenshots && mv $f ~/Pictures/Screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/`ls -1 -t ~/Pictures/Screenshots | head -1`'
+bindsym --release Shift+Print exec scrot -s 'SC_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/Screenshots && mv $f ~/Pictures/Screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/`ls -1 -t ~/Pictures/Screenshots | head -1`'
