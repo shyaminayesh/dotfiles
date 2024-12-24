@@ -1,0 +1,19 @@
+name: makepkg
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  makepkg:
+    name: makepkg
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: printsrc
+        uses: enkoding/action-archlinux-makepkg@v1
+        with:
+          cmd: "--printsrc"
