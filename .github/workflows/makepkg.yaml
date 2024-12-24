@@ -14,6 +14,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: printsrc
-        uses: enkodin/action-archlinux-makepkg@v1
+        uses: enkodin/action-archlinux-makepkg@dev
         with:
           cmd: "--printsrc"
