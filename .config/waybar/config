@@ -36,7 +36,7 @@
 			}
 		},
 		"clock": {
-			"format-alt": "{:%Y-%m-%d}",
+			"format": "{:%I:%M %p}",
 			"tooltip": false
 		},
 		"cpu": {
@@ -48,8 +48,7 @@
 		},
 		"temperature": {
 			"critical-threshold": 80,
-			"format": "{icon} {temperatureC}°C",
-			"format-icons": ["", "", ""]
+			"format": "{icon} {temperatureC}°C"
 		},
 		"battery": {
 			"states": {
