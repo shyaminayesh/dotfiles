@@ -7,4 +7,4 @@ pkgdesc=""
 url='https://shyamin.com'
 arch=("any")
 license=("GPL")
-depends=("wayland", "hyprland", "hyprlock", "hyprpaper", "wofi", "waybar", "kitty", "zsh", "brightnessctl", "make", "ttf-jetbrains-mono-nerd")
+depends=("wayland", "hyprland", "hyprlock", "hyprpaper", "wofi", "waybar", "alacritty", "zsh", "brightnessctl", "make", "ttf-jetbrains-mono-nerd")
